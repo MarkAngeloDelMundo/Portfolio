@@ -1,0 +1,448 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    transition: opacity 0.3s ease;
+}
+
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes activeGlow {
+    from {
+        box-shadow: 0 0 8px rgba(255,255,255,0.45),
+                    0 0 16px rgba(255,255,255,0.25);
+    }
+    to {
+        box-shadow: 0 0 12px rgba(255,255,255,0.95),
+                    0 0 24px rgba(255,255,255,0.65);
+    }
+}
+
+/* HEADER */
+.header /* Header Background */ { 
+    display: flex;
+    background-color: #17152D;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.9375rem 1.875rem;
+}
+
+.header-text /* My Professional Journey*/ {
+    background: linear-gradient(to right, #9172FF 36%, #FFFFFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.right-nav nav {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.site-logo /* Logo */{
+    width: 2.1875rem;
+    height: 2.1875rem;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.nav-links-header {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.nav-btn {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 8.0625rem;
+    height: 2.25rem;
+
+    border: 2px solid transparent;
+    border-radius: 0.6rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #fff;
+
+    background: linear-gradient(135deg, #532CDC, #9172FF);
+
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+.nav-btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.4),
+        transparent
+    );
+    transition: 0.6s;
+}
+
+.nav-btn:hover::after {
+    left: 100%;
+}
+
+.nav-btn.active {
+    border: 2px solid #FFFFFF;
+    animation: activeGlow 1.5s ease-in-out infinite alternate;
+}
+
+.nav-btn:not(.active):hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+/* HERO SECTION*/
+.hero-bg {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+
+    background-image: 
+        linear-gradient(
+            to bottom,
+            #17152D 0%,
+            #532CDC 100%
+        ),
+    url("./image/BG.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    gap: 2rem;
+    height: 100%;
+}
+
+.hero-img {
+    width: 32.8125rem;   
+    height: 40.8125rem;  
+    margin-left: 2.875rem; 
+    object-fit: cover;
+    
+    /* Animation*/
+    opacity: 0;
+    animation: 
+        fadeSlideUp 1s ease forwards,
+        float 3s ease-in-out 1s infinite;
+}
+
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    margin-top: -5rem;
+}
+
+.intro /*Hello, I'm */{
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #9172FF;
+    margin-bottom: -1rem;
+    
+    /* Animation*/
+    opacity: 0;
+    animation: fadeSlideUp 1s ease forwards;
+    animation-delay: 0.2s;
+}
+
+.hero-text h1 {
+    font-size: 6.5rem;
+    font-weight: 850;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    
+    opacity: 0;
+    animation: fadeSlideUp 1s ease forwards;
+    animation-delay: 0.4s;
+}
+
+.name /*Mark Angelo*/ {
+    color: #FFFFFF;
+}
+
+.dot {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-top: 5rem;
+    border-radius: 50%;
+    background-color: #9172FF;
+}
+
+.hero-description {
+    margin-top: 0.9375rem;
+    margin-left: 0.3125rem;
+    font-size: 1rem;
+    color: #FFFFFF;
+    max-width: 50rem;
+    line-height: 1.6;
+
+    /* Animation*/
+    opacity: 0;
+    animation: fadeSlideUp 1s ease forwards;
+    animation-delay: 0.6s;
+}
+
+.hero-buttons {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+
+    /* Animation*/
+    opacity: 0;
+    animation: fadeSlideUp 1s ease forwards;
+    animation-delay: 0.8s;
+}
+
+.hero-btn {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 13rem;
+    height: 3.2rem;
+
+    border-radius: 1rem;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+
+    background: linear-gradient(135deg, #532CDC, #9172FF);
+
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.hero-btn:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+}
+
+/* Shine animation */
+.hero-btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.4),
+        transparent
+    );
+    transition: 0.6s;
+}
+
+.hero-btn:hover::after {
+    left: 100%;
+}
+
+/* Click effect */
+.hero-btn:active {
+    transform: scale(0.95);
+}
+
+/* ABOUT ME */
+.about-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+    padding: 2rem;
+}
+
+.about-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    min-height: 100%;
+}
+
+.about-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 5rem;
+}
+
+.learn {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #9172FF;
+    margin-bottom: -1rem;
+
+    opacity: 0;
+    animation: fadeSlideUp 1s ease forwards;
+    animation-delay: 0.2s;
+}
+
+.about-text h1 {
+    font-size: 6.5rem;
+    font-weight: 850;
+    line-height: 1;
+    margin: 0 0 1rem 0;
+
+    opacity: 0;
+    animation: fadeSlideUp 1s ease forwards;
+    animation-delay: 0.4s;
+}
+
+.aboutme {
+    color: #FFFFFF;
+}
+
+.about-description {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: #CCCCCC;
+    max-width: 40rem;
+    margin: 0;
+    text-align: justify;
+
+    opacity: 0;
+    animation: fadeSlideUp 1s ease forwards;
+    animation-delay: 0.6s;
+}
+
+.about-img {
+    width: 32.8125rem;
+    height: 40.8125rem;
+    object-fit: cover;
+    flex-shrink: 0;
+    margin-right: 9rem;
+
+    opacity: 0;
+    animation:
+        fadeSlideUp 1s ease forwards,
+        float 3s ease-in-out 1s infinite;
+}
+
+/*Right Side Button in About Us */
+.side-tabs {
+    position: fixed;
+    right: 0;
+    bottom: -22rem;
+    transform: translateY(-50%);
+    width: 58rem;
+    height: 44rem;
+    z-index: 1000;
+}
+
+.side-tab-skills,
+.side-tab-strength,
+.side-tab-weaknesses {
+    position: absolute;
+    right: 0;
+    width: 5rem;
+    height: 14rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #C8B6FF;
+    background: #17152D;
+    border-radius: 0rem 2rem 2rem 0rem;
+    box-shadow: -4px 0 12px rgba(0, 0, 0, 0.25);
+
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    transform-origin: center;
+    transition: top 0.5s ease, width 0.5s ease, height 0.5s ease, border-radius 0.5s ease, box-shadow 0.5s ease, z-index 0s;
+    overflow: hidden;
+}
+
+.side-tab-skills {
+    top: 0;
+    z-index: 3;
+}
+
+.side-tab-strength {
+    top: 15rem;
+    z-index: 2;
+}
+
+.side-tab-weaknesses {
+    top: 30rem;
+    z-index: 1;
+}
+
+.side-tab-skills:hover {
+    top: 0;
+    z-index: 10;
+    width: 58rem;
+    height: 40rem;
+    border-radius: 0 2rem 2rem 0rem;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.35);
+}
+
+.side-tab-strength:hover {
+    top: 2rem;
+    z-index: 10;
+    width: 58rem;
+    height: 40rem;
+    border-radius: 0rem 2rem 2rem 0rem;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.35);
+}
+
+.side-tab-weaknesses:hover {
+    top: 4rem;
+    z-index: 10;
+    width: 58rem;
+    height: 40rem;
+    border-radius: 0rem 2rem 2rem 0rem;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.35);
+}
