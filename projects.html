@@ -24,16 +24,36 @@
         </header>
         <section class="hero-bg">
             <div class="project-content">
-                <img src="./image/Wuwa.jpg" class="project-img" alt="Project Image">
-                    <div class="project-text">
-                        <h1>
-                            <span class="project">PROJECTS</span>
-                        </h1>
-                    <p class="project-description">
-                        I deliver high-quality, results-driven work with a focus on professionalism and precision. Committed to continuous growth and excellence in every project.
-                    </p>
+                <!-- IMAGE -->
+                <div class="project-image-box project-enter">
+                    <img id="projectImage" src="./image/chisa.jpg" class="project-img">
+                </div>
+                <h1 class="title_Page">PROJECTS</h1>
+
+                <!-- TEXT -->
+                <div class="project-text">
+                    <div class="project-copy project-enter">
+                        <h1 class="project-title" id="projectTitle"></h1>
+                        <p class="project-description" id="projectDesc"></p>
+                    </div>
+
+                    <!-- CONTROLS -->
+                    <div class="controls">
+                        <div class="controls-group">
+                            <button onclick="prevProject()" class="arrow" aria-label="Previous project">
+                                <img src="./image/Arrow Left.png" alt="" class="arrow-icon">
+                            </button>
+
+                            <div class="dots" id="dots"></div>
+
+                            <button onclick="nextProject()" class="arrow" aria-label="Next project">
+                                <img src="./image/Arrow Right.png" alt="" class="arrow-icon">
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
+        <script src="script.js"></script>
     </body>
 </html>
